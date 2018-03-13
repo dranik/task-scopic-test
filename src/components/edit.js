@@ -132,7 +132,7 @@ function validate(values) {
     }
   })
   if (values.price){
-    if (!values.price.match(/^\d+(\.\d+)?$/)) {
+    if (values.price.match(/^\d+(\.\d+)?$/) === null) {
       errors.price = "Price must be of proper format";
     };
   }
