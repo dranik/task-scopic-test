@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom';
 
 
 class Index extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <div>
@@ -29,7 +33,7 @@ class Index extends Component {
   renderList() {
     return _.map(this.props.products,(product) => {
       return (
-        <tr key={product.id} onClick={this.handleClick.bind(this, product.id)} style={{cursor: "pointer"}}>
+        <tr key={product.id} onClick={(e) => this.handleClick(product.id)} style={{cursor: "pointer"}}>
           <td>{product.id}</td>
           <td>{product.price}</td>
           <td>{product.name}</td>
@@ -40,6 +44,7 @@ class Index extends Component {
   }
 
   handleClick(id) {
+    console.log(id)
     this.props.history.push(`/${id}`);
   }
 }
